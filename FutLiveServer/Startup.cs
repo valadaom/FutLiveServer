@@ -4,6 +4,7 @@ using FutLiveServer.Facades;
 using FutLiveServer.Facades.Interfaces;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
+using Microsoft.AspNetCore.Http;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
@@ -35,6 +36,13 @@ namespace FutLiveServer
             {
                 c.SwaggerDoc("v1", new OpenApiInfo { Title = "FutLiveServer", Version = "v1" });
             });
+
+            services.AddCors(o => o.AddPolicy("local", builder =>
+            {
+                builder.WithOrigins("*")
+                       .AllowAnyMethod()
+                       .AllowAnyHeader();
+            }));
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -48,14 +56,15 @@ namespace FutLiveServer
             }
 
             app.UseHttpsRedirection();
-
+            
             app.UseRouting();
-
+            app.UseCors("local");
             app.UseAuthorization();
 
             app.UseEndpoints(endpoints =>
             {
-                endpoints.MapControllers();
+                endpoints.MapControllers()
+                .RequireCors("*");
             });
         }
     }

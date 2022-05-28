@@ -2,9 +2,11 @@
 
 	<PropertyGroup>
 		<TargetFramework>net5.0</TargetFramework>
+		<UserSecretsId>7692ff71-0045-455c-8948-471754b21a0a</UserSecretsId>
 	</PropertyGroup>
 
 	<ItemGroup>
+		<PackageReference Include="Microsoft.AspNetCore.Cors" Version="2.2.0" />
 		<PackageReference Include="Microsoft.AspNetCore.Mvc.Abstractions" Version="2.2.0" />
 		<PackageReference Include="Microsoft.Data.Sqlite.Core" Version="6.0.5" />
 		<PackageReference Include="Microsoft.EntityFrameworkCore.Sqlite" Version="5.0.17" />

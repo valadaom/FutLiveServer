@@ -1,10 +1,12 @@
 {
   "version": 2,
-  "dgSpecHash": "qFS8xzmy7RHmyt0sIWVwyboO/+Uz8Yu7AvYyfHX/MnVAgug7jygZ/wfAWCNN3qp4bsF8HU7O2Qz3ZImJh4tY6A==",
+  "dgSpecHash": "uKH4O2Vyhb5MViNSc+26EyO/gJQFqMf7uN/68bnb/apH/QoalNqzlAa/1XSfUSxacxZxYbPDotAa37Z45DLrIw==",
   "success": true,
   "projectFilePath": "D:\\Comp\\SISTEMAS DE COMPUTACAO MOVEL\\FutLiveServer\\FutLiveServer\\FutLiveServer.csproj",
   "expectedPackageFiles": [
+    "C:\\Users\\mathe\\.nuget\\packages\\microsoft.aspnetcore.cors\\2.2.0\\microsoft.aspnetcore.cors.2.2.0.nupkg.sha512",
     "C:\\Users\\mathe\\.nuget\\packages\\microsoft.aspnetcore.http.abstractions\\2.2.0\\microsoft.aspnetcore.http.abstractions.2.2.0.nupkg.sha512",
+    "C:\\Users\\mathe\\.nuget\\packages\\microsoft.aspnetcore.http.extensions\\2.2.0\\microsoft.aspnetcore.http.extensions.2.2.0.nupkg.sha512",
     "C:\\Users\\mathe\\.nuget\\packages\\microsoft.aspnetcore.http.features\\2.2.0\\microsoft.aspnetcore.http.features.2.2.0.nupkg.sha512",
     "C:\\Users\\mathe\\.nuget\\packages\\microsoft.aspnetcore.mvc.abstractions\\2.2.0\\microsoft.aspnetcore.mvc.abstractions.2.2.0.nupkg.sha512",
     "C:\\Users\\mathe\\.nuget\\packages\\microsoft.aspnetcore.routing.abstractions\\2.2.0\\microsoft.aspnetcore.routing.abstractions.2.2.0.nupkg.sha512",
@@ -23,6 +25,7 @@
     "C:\\Users\\mathe\\.nuget\\packages\\microsoft.extensions.dependencyinjection\\5.0.2\\microsoft.extensions.dependencyinjection.5.0.2.nupkg.sha512",
     "C:\\Users\\mathe\\.nuget\\packages\\microsoft.extensions.dependencyinjection.abstractions\\5.0.0\\microsoft.extensions.dependencyinjection.abstractions.5.0.0.nupkg.sha512",
     "C:\\Users\\mathe\\.nuget\\packages\\microsoft.extensions.dependencymodel\\5.0.0\\microsoft.extensions.dependencymodel.5.0.0.nupkg.sha512",
+    "C:\\Users\\mathe\\.nuget\\packages\\microsoft.extensions.fileproviders.abstractions\\2.2.0\\microsoft.extensions.fileproviders.abstractions.2.2.0.nupkg.sha512",
     "C:\\Users\\mathe\\.nuget\\packages\\microsoft.extensions.logging\\5.0.0\\microsoft.extensions.logging.5.0.0.nupkg.sha512",
     "C:\\Users\\mathe\\.nuget\\packages\\microsoft.extensions.logging.abstractions\\5.0.0\\microsoft.extensions.logging.abstractions.5.0.0.nupkg.sha512",
     "C:\\Users\\mathe\\.nuget\\packages\\microsoft.extensions.options\\5.0.0\\microsoft.extensions.options.5.0.0.nupkg.sha512",
