@@ -1,5 +1,6 @@
 ﻿using FutLiveServer.Facades.Interfaces;
 using FutLiveServer.Models;
+using Microsoft.AspNetCore.Cors;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 using System.Threading.Tasks;
@@ -18,6 +19,7 @@ namespace FutLiveServer.Controllers
         }
 
         [HttpPost]
+        [EnableCors("AllowOrigin")]
         [Route("login")]
         public async Task<IActionResult> Login(string email, string password)
         {
@@ -31,6 +33,7 @@ namespace FutLiveServer.Controllers
         }
 
         [HttpPost]
+        [EnableCors("AllowOrigin")]
         [Route("register")]
         public async Task<IActionResult> Register([FromBody] User user)
         {

@@ -6,11 +6,18 @@
 	</PropertyGroup>
 
 	<ItemGroup>
+	  <None Remove="Models\Response\MercadoResponse.cs~RF397f69ec.TMP" />
+	</ItemGroup>
+
+	<ItemGroup>
+		<PackageReference Include="Azure.Extensions.AspNetCore.Configuration.Secrets" Version="1.0.0" />
+		<PackageReference Include="Azure.Identity" Version="1.2.2" />
 		<PackageReference Include="Microsoft.AspNetCore.Cors" Version="2.2.0" />
 		<PackageReference Include="Microsoft.AspNetCore.Mvc.Abstractions" Version="2.2.0" />
 		<PackageReference Include="Microsoft.Data.Sqlite.Core" Version="6.0.5" />
 		<PackageReference Include="Microsoft.EntityFrameworkCore.Sqlite" Version="5.0.17" />
 		<PackageReference Include="Newtonsoft.Json" Version="13.0.1" />
+		<PackageReference Include="RestEase" Version="1.5.6" />
 		<PackageReference Include="Swashbuckle.AspNetCore" Version="5.6.3" />
 		<PackageReference Include="System.Data.SQLite.Core" Version="1.0.115.5" />
 	</ItemGroup>
