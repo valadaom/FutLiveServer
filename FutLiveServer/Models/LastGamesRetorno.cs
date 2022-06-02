@@ -18,5 +18,6 @@ namespace FutLiveServer.Models
         public string time_fora_nome { get; set; }
         public string time_fora_foto { get; set; }
         public string time_fora_resultado { get; set; }
+        public string partida_data { get; set; }
     }
 }

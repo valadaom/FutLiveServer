@@ -12,5 +12,6 @@ namespace FutLiveServer.Models
         public int Jogos { get; set; }
         public string Clube { get; set; }
         public int Quantidade { get; set; }
+        public string clube_image { get; set; }
     }
 }

@@ -19,20 +19,21 @@ namespace FutLiveServer.Facades
         {
             var nextPartidas = await _cartolaService.GetPartidas();
 
-            var jogosUltimaRodada = await _cartolaService.GetRodada(nextPartidas.rodada + 1);
+            var jogosProxRodada = await _cartolaService.GetRodada(nextPartidas.rodada);
 
             var partidasRecentes = new List<Partidas>();
 
-            foreach (var item in jogosUltimaRodada.partidas)
+            foreach (var item in jogosProxRodada.partidas)
             {
                 var partida = new Partidas
                 {
                     time_casa_nome = GetTeamNameById(item.clube_casa_id.ToString()),
                     time_casa_foto = GetTeamFotoById(item.clube_casa_id.ToString()),
-                    time_casa_resultado = "0",
+                    time_casa_resultado = Convert.ToString(item.placar_oficial_mandante ?? "0"),
                     time_fora_nome = GetTeamNameById(item.clube_visitante_id.ToString()),
-                    time_fora_foto = GetTeamFotoById(item.clube_casa_id.ToString()),
-                    time_fora_resultado = "0"
+                    time_fora_foto = GetTeamFotoById(item.clube_visitante_id.ToString()),
+                    time_fora_resultado = Convert.ToString(item.placar_oficial_visitante ?? "0"),
+                    partida_data = item.partida_data
                 };
                 partidasRecentes.Add(partida);
             }
@@ -57,8 +58,9 @@ namespace FutLiveServer.Facades
                     time_casa_foto = GetTeamFotoById(item.clube_casa_id.ToString()),
                     time_casa_resultado = item.placar_oficial_mandante.ToString(),
                     time_fora_nome = GetTeamNameById(item.clube_visitante_id.ToString()),
-                    time_fora_foto = GetTeamFotoById(item.clube_casa_id.ToString()),
-                    time_fora_resultado = item.placar_oficial_visitante.ToString()
+                    time_fora_foto = GetTeamFotoById(item.clube_visitante_id.ToString()),
+                    time_fora_resultado = item.placar_oficial_visitante.ToString(),
+                    partida_data = item.partida_data
                 };
                 partidasRecentes.Add(partida);
             }
@@ -81,8 +83,9 @@ namespace FutLiveServer.Facades
                     time_casa_foto = GetTeamFotoById(item.clube_casa_id.ToString()),
                     time_casa_resultado = Convert.ToString(item.placar_oficial_mandante ?? "0"),
                     time_fora_nome = GetTeamNameById(item.clube_visitante_id.ToString()),
-                    time_fora_foto = GetTeamFotoById(item.clube_casa_id.ToString()),
-                    time_fora_resultado = Convert.ToString(item.placar_oficial_visitante ?? "0")
+                    time_fora_foto = GetTeamFotoById(item.clube_visitante_id.ToString()),
+                    time_fora_resultado = Convert.ToString(item.placar_oficial_visitante ?? "0"),
+                    partida_data = item.partida_data
                 };
                 partidasRecentes.Add(partida);
             }

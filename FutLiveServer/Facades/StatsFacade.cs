@@ -26,7 +26,8 @@ namespace FutLiveServer.Facades
                     Jogos = atleta.jogos_num,
                     Clube = GetTeamNameById(atleta.clube_id.ToString()),
                     Scout = "Gols",
-                    Quantidade = atleta.scout.G
+                    Quantidade = atleta.scout.G,
+                    clube_image = GetTeamFotoById(atleta.clube_id.ToString())
                 };
                 ranking.Add(jogador);
             }
@@ -46,6 +47,7 @@ namespace FutLiveServer.Facades
                     Clube = GetTeamNameById(atleta.clube_id.ToString()),
                     Scout = "Assistências",
                     Quantidade = atleta.scout.A,
+                    clube_image = GetTeamFotoById(atleta.clube_id.ToString())
                 };
                 ranking.Add(jogador);
             }
@@ -65,6 +67,7 @@ namespace FutLiveServer.Facades
                     Clube = GetTeamNameById(atleta.clube_id.ToString()),
                     Scout = "Desarmes",
                     Quantidade = atleta.scout.DS,
+                    clube_image = GetTeamFotoById(atleta.clube_id.ToString())
                 };
                 ranking.Add(jogador);
             }
@@ -84,6 +87,7 @@ namespace FutLiveServer.Facades
                     Clube = GetTeamNameById(atleta.clube_id.ToString()),
                     Scout = "Defesas",
                     Quantidade = atleta.scout.DE,
+                    clube_image = GetTeamFotoById(atleta.clube_id.ToString())
                 };
                 ranking.Add(jogador);
             }
@@ -136,6 +140,53 @@ namespace FutLiveServer.Facades
                     return "Atlético-GO";
                 case ("1371"):
                     return "Cuiabá";
+            }
+            return null;
+        }
+        private string GetTeamFotoById(string id)
+        {
+            switch (id)
+            {
+                case ("262"):
+                    return "https://s.glbimg.com/es/sde/f/organizacoes/2018/04/09/Flamengo-45.png";
+                case ("263"):
+                    return "https://s.glbimg.com/es/sde/f/organizacoes/2019/02/04/botafogo-45.png";
+                case ("264"):
+                    return "https://s.glbimg.com/es/sde/f/organizacoes/2019/09/30/Corinthians_45.png";
+                case ("266"):
+                    return "https://s.glbimg.com/es/sde/f/organizacoes/2014/04/14/fluminense_45x45.png";
+                case ("275"):
+                    return "https://s.glbimg.com/es/sde/f/organizacoes/2014/04/14/palmeiras_45x45.png";
+                case ("276"):
+                    return "https://s.glbimg.com/es/sde/f/organizacoes/2014/04/14/sao_paulo_45x45.png";
+                case ("277"):
+                    return "https://s.glbimg.com/es/sde/f/organizacoes/2014/04/14/santos_45x45.png";
+                case ("280"):
+                    return "https://s.glbimg.com/es/sde/f/organizacoes/2020/01/01/45.png";
+                case ("282"):
+                    return "https://s.glbimg.com/es/sde/f/organizacoes/2017/11/23/Atletico-Mineiro-escudo45px.png";
+                case ("285"):
+                    return "https://s.glbimg.com/es/sde/f/organizacoes/2016/05/03/inter45.png";
+                case ("286"):
+                    return "https://s.glbimg.com/es/sde/f/organizacoes/2021/04/29/juventude45.png";
+                case ("290"):
+                    return "https://s.glbimg.com/es/sde/f/organizacoes/2021/03/01/goias-45.png";
+                case ("293"):
+                    return "https://s.glbimg.com/es/sde/f/organizacoes/2019/09/09/Athletico-PR-45x45.png";
+                case ("294"):
+                    return "https://s.glbimg.com/es/sde/f/organizacoes/2017/03/29/coritiba45.png";
+                case ("314"):
+                    return "https://s.glbimg.com/es/sde/f/organizacoes/2018/09/04/escudo-avai-45x45.png";
+                case ("327"):
+                    return "https://s.glbimg.com/es/sde/f/organizacoes/2019/02/28/escudo45_1.png";
+                case ("354"):
+                    return "https://s.glbimg.com/es/sde/f/organizacoes/2019/10/10/ceara-45x45.png";
+                case ("356"):
+                    return "https://s.glbimg.com/es/sde/f/organizacoes/2021/09/19/45_0000_Fortaleza-2021.png";
+                case ("373"):
+                    return "https://s.glbimg.com/es/sde/f/organizacoes/2020/07/02/atletico-go-2020-45.png";
+                case ("1371"):
+                    return "https://s.glbimg.com/es/sde/f/organizacoes/2014/04/16/cuiaba45.png";
             }
             return null;
         }
