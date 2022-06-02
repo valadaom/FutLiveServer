@@ -71,5 +71,19 @@ namespace FutLiveServer.Controllers
             }
             return BadRequest(result);
         }
+
+        [HttpGet]
+        [EnableCors("AllowOrigin")]
+        [Route("classificacao")]
+        public async Task<IActionResult> GetClassificacao()
+        {
+            var result = await _statsFacade.GetClassificacao();
+
+            if (result.Count > 0)
+            {
+                return Ok(result);
+            }
+            return BadRequest(result);
+        }
     }
 }

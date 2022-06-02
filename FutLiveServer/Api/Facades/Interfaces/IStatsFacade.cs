@@ -10,5 +10,6 @@ namespace FutLiveServer.Facades.Interfaces
         public Task<List<StatsRetorno>> GetGarçons();
         public Task<List<StatsRetorno>> GetDesarmes();
         public Task<List<StatsRetorno>> GetDefesas();
+        public Task<List<ClassificacaoRetorno>> GetClassificacao();
     }
 }

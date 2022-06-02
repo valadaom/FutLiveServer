@@ -94,6 +94,29 @@ namespace FutLiveServer.Facades
 
             return FilterScouts(ranking);
         }
+        public async Task<List<ClassificacaoRetorno>> GetClassificacao()
+        {
+            var nextPartidas = await _cartolaService.GetPartidas();
+            var liClassificacao = new List<ClassificacaoRetorno>();
+            foreach (var partida in nextPartidas.partidas)
+            {
+                var classificacaoCasa = new ClassificacaoRetorno
+                {
+                    clube_image = GetTeamFotoById(partida.clube_casa_id.ToString()),
+                    clube_nome = GetTeamNameById(partida.clube_casa_id.ToString()),
+                    clube_posicao = partida.clube_casa_posicao
+                };
+                var classificacaoFora = new ClassificacaoRetorno
+                {
+                    clube_image = GetTeamFotoById(partida.clube_visitante_id.ToString()),
+                    clube_nome = GetTeamNameById(partida.clube_visitante_id.ToString()),
+                    clube_posicao = partida.clube_visitante_posicao
+                };
+                liClassificacao.Add(classificacaoCasa);
+                liClassificacao.Add(classificacaoFora);
+            }
+            return FilterClassificacao(liClassificacao);
+        }
 
 
         private string GetTeamNameById(string id)
@@ -198,5 +221,12 @@ namespace FutLiveServer.Facades
 
             return orderedList;
         }
+        private List<ClassificacaoRetorno> FilterClassificacao(List<ClassificacaoRetorno> ranking)
+        {
+            List<ClassificacaoRetorno> orderedList = ranking.OrderBy(i => i.clube_posicao).ToList();
+
+            return orderedList;
+        }
+
     }
 }
