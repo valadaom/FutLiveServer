@@ -14,7 +14,7 @@ namespace FutLiveServer.Facades
         {
             _cartolaService = cartolaService;
         }
-        public async Task<List<StatsRetorno>> GetArtilheiros()
+        public async Task<List<StatsRetorno>> GetGols()
         {
             var mercado = await _cartolaService.GetMercado();
             var ranking = new List<StatsRetorno>();
@@ -34,7 +34,7 @@ namespace FutLiveServer.Facades
 
             return FilterScouts(ranking);
         }
-        public async Task<List<StatsRetorno>> GetGarçons()
+        public async Task<List<StatsRetorno>> GetAssists()
         {
             var mercado = await _cartolaService.GetMercado();
             var ranking = new List<StatsRetorno>();
@@ -117,6 +117,341 @@ namespace FutLiveServer.Facades
             }
             return FilterClassificacao(liClassificacao);
         }
+        public async Task<List<StatsRetorno>> GetSaldoGols()
+        {
+            var mercado = await _cartolaService.GetMercado();
+            var ranking = new List<StatsRetorno>();
+            foreach (var atleta in mercado.atletas)
+            {
+                var jogador = new StatsRetorno
+                {
+                    Nome = atleta.apelido,
+                    Jogos = atleta.jogos_num,
+                    Clube = GetTeamNameById(atleta.clube_id.ToString()),
+                    Scout = "Sem sofrer gols",
+                    Quantidade = atleta.scout.SG,
+                    clube_image = GetTeamFotoById(atleta.clube_id.ToString())
+                };
+                ranking.Add(jogador);
+            }
+
+            return FilterScouts(ranking);
+        }
+        public async Task<List<StatsRetorno>> GetFaltaSofrida()
+        {
+            var mercado = await _cartolaService.GetMercado();
+            var ranking = new List<StatsRetorno>();
+            foreach (var atleta in mercado.atletas)
+            {
+                var jogador = new StatsRetorno
+                {
+                    Nome = atleta.apelido,
+                    Jogos = atleta.jogos_num,
+                    Clube = GetTeamNameById(atleta.clube_id.ToString()),
+                    Scout = "Faltas sofridas",
+                    Quantidade = atleta.scout.FS,
+                    clube_image = GetTeamFotoById(atleta.clube_id.ToString())
+                };
+                ranking.Add(jogador);
+            }
+
+            return FilterScouts(ranking);
+        }
+        public async Task<List<StatsRetorno>> GetFinalizacaoFora()
+        {
+            var mercado = await _cartolaService.GetMercado();
+            var ranking = new List<StatsRetorno>();
+            foreach (var atleta in mercado.atletas)
+            {
+                var jogador = new StatsRetorno
+                {
+                    Nome = atleta.apelido,
+                    Jogos = atleta.jogos_num,
+                    Clube = GetTeamNameById(atleta.clube_id.ToString()),
+                    Scout = "Finalizações para fora",
+                    Quantidade = atleta.scout.FF,
+                    clube_image = GetTeamFotoById(atleta.clube_id.ToString())
+                };
+                ranking.Add(jogador);
+            }
+
+            return FilterScouts(ranking);
+        }
+        public async Task<List<StatsRetorno>> GetFinalizacaoDefendida()
+        {
+            var mercado = await _cartolaService.GetMercado();
+            var ranking = new List<StatsRetorno>();
+            foreach (var atleta in mercado.atletas)
+            {
+                var jogador = new StatsRetorno
+                {
+                    Nome = atleta.apelido,
+                    Jogos = atleta.jogos_num,
+                    Clube = GetTeamNameById(atleta.clube_id.ToString()),
+                    Scout = "Finalizações defendidas",
+                    Quantidade = atleta.scout.FD,
+                    clube_image = GetTeamFotoById(atleta.clube_id.ToString())
+                };
+                ranking.Add(jogador);
+            }
+
+            return FilterScouts(ranking);
+        }
+        public async Task<List<StatsRetorno>> GetFinalizacaoTrave()
+        {
+            var mercado = await _cartolaService.GetMercado();
+            var ranking = new List<StatsRetorno>();
+            foreach (var atleta in mercado.atletas)
+            {
+                var jogador = new StatsRetorno
+                {
+                    Nome = atleta.apelido,
+                    Jogos = atleta.jogos_num,
+                    Clube = GetTeamNameById(atleta.clube_id.ToString()),
+                    Scout = "Finalizações na trave",
+                    Quantidade = atleta.scout.FT,
+                    clube_image = GetTeamFotoById(atleta.clube_id.ToString())
+                };
+                ranking.Add(jogador);
+            }
+
+            return FilterScouts(ranking);
+        }
+        public async Task<List<StatsRetorno>> GetPenaltySofrido()
+        {
+            var mercado = await _cartolaService.GetMercado();
+            var ranking = new List<StatsRetorno>();
+            foreach (var atleta in mercado.atletas)
+            {
+                var jogador = new StatsRetorno
+                {
+                    Nome = atleta.apelido,
+                    Jogos = atleta.jogos_num,
+                    Clube = GetTeamNameById(atleta.clube_id.ToString()),
+                    Scout = "Penaltis sofridos",
+                    Quantidade = atleta.scout.PS,
+                    clube_image = GetTeamFotoById(atleta.clube_id.ToString())
+                };
+                ranking.Add(jogador);
+            }
+
+            return FilterScouts(ranking);
+        }
+        public async Task<List<StatsRetorno>> GetDefesaPenalti()
+        {
+            var mercado = await _cartolaService.GetMercado();
+            var ranking = new List<StatsRetorno>();
+            foreach (var atleta in mercado.atletas)
+            {
+                var jogador = new StatsRetorno
+                {
+                    Nome = atleta.apelido,
+                    Jogos = atleta.jogos_num,
+                    Clube = GetTeamNameById(atleta.clube_id.ToString()),
+                    Scout = "Defesas penalti",
+                    Quantidade = atleta.scout.DP,
+                    clube_image = GetTeamFotoById(atleta.clube_id.ToString())
+                };
+                ranking.Add(jogador);
+            }
+
+            return FilterScouts(ranking);
+        }
+        public async Task<List<StatsRetorno>> GetGolContra()
+        {
+            var mercado = await _cartolaService.GetMercado();
+            var ranking = new List<StatsRetorno>();
+            foreach (var atleta in mercado.atletas)
+            {
+                var jogador = new StatsRetorno
+                {
+                    Nome = atleta.apelido,
+                    Jogos = atleta.jogos_num,
+                    Clube = GetTeamNameById(atleta.clube_id.ToString()),
+                    Scout = "Gols contra",
+                    Quantidade = atleta.scout.GC,
+                    clube_image = GetTeamFotoById(atleta.clube_id.ToString())
+                };
+                ranking.Add(jogador);
+            }
+
+            return FilterScouts(ranking);
+        }
+        public async Task<List<StatsRetorno>> GetCartaoVermelho()
+        {
+            var mercado = await _cartolaService.GetMercado();
+            var ranking = new List<StatsRetorno>();
+            foreach (var atleta in mercado.atletas)
+            {
+                var jogador = new StatsRetorno
+                {
+                    Nome = atleta.apelido,
+                    Jogos = atleta.jogos_num,
+                    Clube = GetTeamNameById(atleta.clube_id.ToString()),
+                    Scout = "Cartões vermelhos",
+                    Quantidade = atleta.scout.CV,
+                    clube_image = GetTeamFotoById(atleta.clube_id.ToString())
+                };
+                ranking.Add(jogador);
+            }
+
+            return FilterScouts(ranking);
+        }
+        public async Task<List<StatsRetorno>> GetCartoesAmarelos()
+        {
+            var mercado = await _cartolaService.GetMercado();
+            var ranking = new List<StatsRetorno>();
+            foreach (var atleta in mercado.atletas)
+            {
+                var jogador = new StatsRetorno
+                {
+                    Nome = atleta.apelido,
+                    Jogos = atleta.jogos_num,
+                    Clube = GetTeamNameById(atleta.clube_id.ToString()),
+                    Scout = "Cartões amarelos",
+                    Quantidade = atleta.scout.CA,
+                    clube_image = GetTeamFotoById(atleta.clube_id.ToString())
+                };
+                ranking.Add(jogador);
+            }
+
+            return FilterScouts(ranking);
+        }
+        public async Task<List<StatsRetorno>> GetGolsSofridos()
+        {
+            var mercado = await _cartolaService.GetMercado();
+            var ranking = new List<StatsRetorno>();
+            foreach (var atleta in mercado.atletas)
+            {
+                var jogador = new StatsRetorno
+                {
+                    Nome = atleta.apelido,
+                    Jogos = atleta.jogos_num,
+                    Clube = GetTeamNameById(atleta.clube_id.ToString()),
+                    Scout = "Gols sofridos",
+                    Quantidade = atleta.scout.GS,
+                    clube_image = GetTeamFotoById(atleta.clube_id.ToString())
+                };
+                ranking.Add(jogador);
+            }
+
+            return FilterScouts(ranking);
+        }
+        public async Task<List<StatsRetorno>> GetPenaltiPerdido()
+        {
+            var mercado = await _cartolaService.GetMercado();
+            var ranking = new List<StatsRetorno>();
+            foreach (var atleta in mercado.atletas)
+            {
+                var jogador = new StatsRetorno
+                {
+                    Nome = atleta.apelido,
+                    Jogos = atleta.jogos_num,
+                    Clube = GetTeamNameById(atleta.clube_id.ToString()),
+                    Scout = "Penaltis perdidos",
+                    Quantidade = atleta.scout.PP,
+                    clube_image = GetTeamFotoById(atleta.clube_id.ToString())
+                };
+                ranking.Add(jogador);
+            }
+
+            return FilterScouts(ranking);
+        }
+        public async Task<List<StatsRetorno>> GetPenaltiCometido()
+        {
+            var mercado = await _cartolaService.GetMercado();
+            var ranking = new List<StatsRetorno>();
+            foreach (var atleta in mercado.atletas)
+            {
+                var jogador = new StatsRetorno
+                {
+                    Nome = atleta.apelido,
+                    Jogos = atleta.jogos_num,
+                    Clube = GetTeamNameById(atleta.clube_id.ToString()),
+                    Scout = "Penaltis cometidos",
+                    Quantidade = atleta.scout.PC,
+                    clube_image = GetTeamFotoById(atleta.clube_id.ToString())
+                };
+                ranking.Add(jogador);
+            }
+
+            return FilterScouts(ranking);
+        }
+        public async Task<List<StatsRetorno>> GetFaltasCometidas()
+        {
+            var mercado = await _cartolaService.GetMercado();
+            var ranking = new List<StatsRetorno>();
+            foreach (var atleta in mercado.atletas)
+            {
+                var jogador = new StatsRetorno
+                {
+                    Nome = atleta.apelido,
+                    Jogos = atleta.jogos_num,
+                    Clube = GetTeamNameById(atleta.clube_id.ToString()),
+                    Scout = "Falta cometida",
+                    Quantidade = atleta.scout.FC,
+                    clube_image = GetTeamFotoById(atleta.clube_id.ToString())
+                };
+                ranking.Add(jogador);
+            }
+
+            return FilterScouts(ranking);
+        }
+        public async Task<List<StatsRetorno>> GetImpedimento()
+        {
+            var mercado = await _cartolaService.GetMercado();
+            var ranking = new List<StatsRetorno>();
+            foreach (var atleta in mercado.atletas)
+            {
+                var jogador = new StatsRetorno
+                {
+                    Nome = atleta.apelido,
+                    Jogos = atleta.jogos_num,
+                    Clube = GetTeamNameById(atleta.clube_id.ToString()),
+                    Scout = "Impedimentos",
+                    Quantidade = atleta.scout.I,
+                    clube_image = GetTeamFotoById(atleta.clube_id.ToString())
+                };
+                ranking.Add(jogador);
+            }
+
+            return FilterScouts(ranking);
+        }
+        public async Task<List<StatsRetorno>> GetPassesIncompletos()
+        {
+            var mercado = await _cartolaService.GetMercado();
+            var ranking = new List<StatsRetorno>();
+            foreach (var atleta in mercado.atletas)
+            {
+                var jogador = new StatsRetorno
+                {
+                    Nome = atleta.apelido,
+                    Jogos = atleta.jogos_num,
+                    Clube = GetTeamNameById(atleta.clube_id.ToString()),
+                    Scout = "Passe incompleto",
+                    Quantidade = atleta.scout.PI,
+                    clube_image = GetTeamFotoById(atleta.clube_id.ToString())
+                };
+                ranking.Add(jogador);
+            }
+
+            return FilterScouts(ranking);
+        }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
         private string GetTeamNameById(string id)
